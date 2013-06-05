@@ -1,7 +1,7 @@
 Ajax::Application.routes.draw do
   resources :people
 
-
+  get '/cities/by_country/:country_id' => 'cities#index'
   resources :cities
 
 

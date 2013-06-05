@@ -2,7 +2,12 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+
+    if params[:country_id]
+      @cities = City.where(:country_id => params[:country_id])
+    else
+      @cities = City.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
